@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  superset:
+    image: apache/superset:4.1.3
+    container_name: superset
+    restart: always
+    hostname: superset
+    volumes:
+      - superset_home:/app/superset_home
+    environment:
+      - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
+    ports:
+      - "0.0.0.0:8088:8088"
+
+volumes:
+  superset_home:
